@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html th:replace="layout/masterLayout :: layout(~{::main})"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<main role="main">
+<!--  style="color: #fe5406"  -->
+  <section class="text-white py-3" style="background-color: #fe5406" >
+   <div class="container">
+     <h1><i class="fas fa-tachometer-alt"></i>Dashboard</h1>
+   </div>
+  </section>
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#"
+                       data-bs-toggle="modal"
+                       data-bs-target="#addCategoryModal"
+                        class="btn btn-secondary w-100 rounded">
+                        <i class="fas fa-plus me-2"></i>
+                        Add Category</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"
+                       data-bs-toggle="modal"
+                       data-bs-target="#addProductModal"
+                       class="btn btn-success w-100 rounded">
+                        <i class="fas fa-plus me-2"></i>
+                        Add Product</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"
+                       data-bs-toggle="modal"
+                       data-bs-target="#addUserModal"
+                       class="btn btn-warning w-100 rounded">
+                        <i class="fas fa-plus me-2"></i>
+                        Add Order</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"
+                       data-bs-toggle="modal"
+                       data-bs-target="#addUserModal"
+                       class="btn btn-danger w-100 rounded">
+                        <i class="fas fa-plus me-2"></i>
+                        Add Account</a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+<!----------------------------------------- Category modal--------------------------->
+    <section>
+        <div id="addCategoryModal"  class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form th:action="@{/save-category}" th:object="${category}" method="post">
+                        <div class="modal-header text-white bg-secondary">
+                            <h5 class="modal-title">Add Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" >
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="mb-3">
+                              <label for="id" class="form-label">Category ID</label>
+                              <input type="text" id="id"
+                              th:field="*{id}" class="form-control">
+                          </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name"
+                                       th:field="*{name}" class="form-control">
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-secondary">Save changes</button>
+                        </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</main>
+
+</body>
+
+</html>
